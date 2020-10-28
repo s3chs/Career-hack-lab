@@ -9,3 +9,33 @@ max-height: auto;
   width: 200px;
   height: 200px;
 }
+
+.box {
+  width:  30px;
+  height: 30px;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.black {
+  background-color: black;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.box-row {
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+}

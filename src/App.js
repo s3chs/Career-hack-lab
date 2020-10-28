@@ -30,7 +30,13 @@ const clothes = [
   {
     name: "The Kooples",
     picture: "https://i.ebayimg.com/images/g/l7MAAOSw9bZfEIvB/s-l300.jpg",
-    color: "Violet",
+    color: "Green",
+    price: 34,
+  },
+  {
+    name: "The Kooples",
+    picture: "https://i.ebayimg.com/images/g/l7MAAOSw9bZfEIvB/s-l300.jpg",
+    color: "Green",
     price: 34,
   },
 ];
@@ -39,42 +45,60 @@ export default class App extends Component {
   state = {
     search: "",
     products: clothes,
+    colorSearched: "",
   };
+
+  ///BARRE DE PRIX///
 
   handleChange = (event) => {
     const value = event.target.value;
 
-    console.log("cest la value");
+    // console.log("cest la value");
+
+    const copyProducts = [...clothes];
+
+    const filtered = copyProducts.filter(
+      (product) => product.price <= this.state.search
+    );
+
+    console.log("je suis ici");
+    console.log(filtered);
+
+    this.setState({
+      search: value,
+      products: filtered,
+    });
+  };
+  ////
+
+  //// FILTRE COULEUR ///
+
+  selectedColor = (event) => {
+    const value = event.target.value;
+
     console.log(">>>>>", value);
 
-    const copyProducts = [...this.state.products];
+    const copyProducts = [...clothes];
+    const filtered = copyProducts.filter(
+      (product) => product.color.toLowerCase() === value.toLowerCase()
+    );
 
-    if (this.handleChange) {
-      const filtered = copyProducts.filter(
-        (product) => product.price <= this.state.search
-      );
-
-      console.log("je suis ici");
-      console.log(filtered);
-
-      this.setState({
-        search: value,
-        products: filtered,
-      });
-    } else {
-      this.setState({
-        search: "",
-        products: copyProducts,
-      })
-    }
+    this.setState({
+      colorSearched: value,
+      products: filtered,
+    });
   };
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <FixedHeader />
         <MainContent searchClothes={this.state.products} />
-        <SideBar handleChange={this.handleChange} />
+        <SideBar
+          handleChange={this.handleChange}
+          selectedColor={this.selectedColor}
+        />
       </div>
     );
   }
