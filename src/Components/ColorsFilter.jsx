@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class ItemCard extends Component {
+export default class ColorsFilter extends Component {
     render() {
         return (
             <div>

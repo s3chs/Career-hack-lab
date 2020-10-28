@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import FixedHeader from "./Components/FixedHeader";
 import MainContent from "./Components/MainContent";
 import SideBar from "./Components/SideBar";
