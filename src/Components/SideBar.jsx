@@ -7,7 +7,7 @@ export default class SideBar extends Component {
     render() {
         return (
             <div>
-               <PriceFilter/>
+               <PriceFilter handleChange={this.props.handleChange}/>
                <ColorsFilter/> 
                <BrandsFilter/>
             </div>
