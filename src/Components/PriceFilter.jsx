@@ -23,6 +23,7 @@ export default class PriceFilter extends Component {
         return (
 
             <div>
+            <h3>Price Max</h3>
                 <input type="range" min="0" max="100" onChange={this.props.handleChange} />
             </div>
         )
