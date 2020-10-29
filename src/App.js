@@ -107,7 +107,7 @@ export default class App extends Component {
     console.log("max", event.target.name);
 
     const copyProducts = [...clothes];
-    for (let i = 0; i < copyProducts.length; i++) {
+    for (let i = 0; i < copyProducts.length; i++){
       if (copyProducts[i].name === name) {
         copyProducts[i].isChecked = checked;
       }
